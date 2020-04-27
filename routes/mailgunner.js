@@ -7,7 +7,7 @@ var router = express.Router(),
   sender = process.env.SENDER;
 
 router.route("/").get(function (req, res) {
-  res.send("Please send a post request");
+  res.status(404).send("Please send a post request");
 });
 
 router.route("/submit/:mail").post(function (req, res) {
