@@ -10,14 +10,6 @@ router.route("/").get(function (req, res) {
   res.status(404).send("Please send a post request");
 });
 
-router.route("/").options(function (req, res) {
-  res.status(200).send("Options - OK");
-});
-
-router.route("/submit/:mail").options(function (req, res) {
-  res.status(200).send("Options - OK");
-});
-
 router.route("/submit/:mail").post(function (req, res) {
   var mailgun = new Mailgun({ apiKey: api_key, domain: domain });
   var name = req.body.name,
