@@ -3,7 +3,7 @@ require("dotenv").config();
 console.log(process.env.PORT);
 var express = require("express"),
   bodyParser = require("body-parser"),
-  cors = require("cors"),
+  // cors = require("cors"),
   mailgunner = require("./routes/mailgunner");
 
 var app = express();
@@ -12,6 +12,10 @@ var app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+});
 
 app.get("/", function (req, res) {
   res.send("Please send a post request");
