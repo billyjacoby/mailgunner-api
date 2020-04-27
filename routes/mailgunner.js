@@ -33,7 +33,7 @@ router.route("/submit/:mail").post(function (req, res) {
 
   mailgun.messages().send(data, function (err, body) {
     if (err) {
-      res.send("error", { error: err });
+      res.status(502).send("error", { error: err });
       console.log("Error trying to send email: ", err);
     } else {
       res.send("OK");
