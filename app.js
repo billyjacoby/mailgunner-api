@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", function (req, res) {
-  res.send("Please send a post request");
+  res.status(404).send("Please send a post request");
 });
 
 app.use("/api", mailgunner); //This is our route middleware
